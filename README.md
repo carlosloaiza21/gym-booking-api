@@ -2,7 +2,9 @@
 
 A RESTful API for a gym class reservation system, built with [NestJS](https://nestjs.com/) and [PostgreSQL](https://www.postgresql.org/).
 
-This project was created as a practical learning exercise to master NestJS, implement clean architecture, authentication with JWT, and prepare for future integration with AWS services.
+This project is a backend service designed for managing gym class reservations, built with NestJS and PostgreSQL. It follows clean architecture principles, includes JWT-based authentication and role-based access control, and is structured to support AWS integration and production deployment.
+
+
 
 ---
 
@@ -92,9 +94,9 @@ npm run start:dev
 
 ---
 
-## 🧠 Learning Goals
+## 🧠 Project Vision
 
-This project is part of my hands-on journey to learn NestJS deeply and apply best practices for building modern, secure, and scalable backends.
+This API is part of a long-term vision to deliver a solid backend foundation for real-world gym management applications. It emphasizes clean code, modular architecture, security best practices, and scalability for future growth and integration with cloud services.
 
 ---
 
