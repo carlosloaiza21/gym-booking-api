@@ -103,6 +103,17 @@ This API is part of a long-term vision to deliver a solid backend foundation for
 
 ---
 
+## 🌐 Frontend Integration
+
+This API is being developed as the backend for a gym reservation system, with planned frontend clients built using:
+
+- 🧩 [React](https://react.dev/) – for the web-based admin dashboard and client portal
+- 📱 [React Native](https://reactnative.dev/) – for the mobile app used by gym members
+
+The API follows REST principles to allow seamless integration across platforms, enabling secure authentication, class bookings, and user role management from both web and mobile clients.
+
+---
+
 ## 📄 License
 
 MIT
