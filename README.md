@@ -4,8 +4,6 @@ A RESTful API for a gym class reservation system, built with [NestJS](https://ne
 
 This project is a backend service designed for managing gym class reservations, built with NestJS and PostgreSQL. It follows clean architecture principles, includes JWT-based authentication and role-based access control, and is structured to support AWS integration and production deployment.
 
-
-
 ---
 
 ## 🚀 Features
@@ -16,7 +14,7 @@ This project is a backend service designed for managing gym class reservations, 
 - ✅ PostgreSQL database using TypeORM
 - ✅ Modular and scalable architecture
 - 🔐 Route protection with guards
-- 🧱 Ready for AWS deployment with Docker *(in progress)*
+- 🧱 Ready for AWS deployment with Docker _(in progress)_
 
 ---
 
@@ -53,6 +51,7 @@ npm install
 ### 3. Create your `.env` file
 
 ```env
+PORT=3000
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
 DATABASE_USER=postgres
@@ -80,12 +79,16 @@ npm run start:dev
 
 - `POST /users/register` – Register a new user
 - `POST /auth/login` – Login and receive a JWT token  
-*(more endpoints coming soon)*
+  _(more endpoints coming soon)_
 
 ---
 
 ## ✅ To Do
 
+- [x] User login with JWT token
+- [x] Password hashing and user validation
+- [ ] Protect routes using JwtAuthGuard
+- [ ] Role-based access control (admin/client)
 - [ ] Gym class CRUD
 - [ ] Booking system with slot limits
 - [ ] Class time validation
