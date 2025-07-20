@@ -78,8 +78,20 @@ npm run start:dev
 ## 🧪 Available Endpoints
 
 - `POST /users/register` – Register a new user
-- `POST /auth/login` – Login and receive a JWT token  
+- `POST /auth/login` – Login and receive a JWT token
+- `GET /users/me` – Get authenticated user's info (requires JWT token)
   _(more endpoints coming soon)_
+
+---
+
+## 🔐 Authentication Flow
+
+This API uses JWT for authentication. When a user logs in, a signed token is returned, which must be sent in the `Authorization` header as a Bearer token in future requests to protected endpoints.
+
+Protected routes (like `/users/me`) use:
+
+- `JwtAuthGuard`: applied via `@UseGuards(...)`
+- `JwtStrategy`: validates the token and extracts user data into `req.user`
 
 ---
 
@@ -87,7 +99,7 @@ npm run start:dev
 
 - [x] User login with JWT token
 - [x] Password hashing and user validation
-- [ ] Protect routes using JwtAuthGuard
+- [x] Protect routes using JwtAuthGuard ✅
 - [ ] Role-based access control (admin/client)
 - [ ] Gym class CRUD
 - [ ] Booking system with slot limits
