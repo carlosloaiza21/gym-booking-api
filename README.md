@@ -4,8 +4,6 @@ A RESTful API for a gym class reservation system, built with [NestJS](https://ne
 
 This project is a backend service designed for managing gym class reservations, built with NestJS and PostgreSQL. It follows clean architecture principles, includes JWT-based authentication and role-based access control, and is structured to support AWS integration and production deployment.
 
-
-
 ---
 
 ## 🚀 Features
@@ -16,7 +14,7 @@ This project is a backend service designed for managing gym class reservations, 
 - ✅ PostgreSQL database using TypeORM
 - ✅ Modular and scalable architecture
 - 🔐 Route protection with guards
-- 🧱 Ready for AWS deployment with Docker *(in progress)*
+- 🧱 Ready for AWS deployment with Docker _(in progress)_
 
 ---
 
@@ -53,6 +51,7 @@ npm install
 ### 3. Create your `.env` file
 
 ```env
+PORT=3000
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
 DATABASE_USER=postgres
@@ -79,13 +78,29 @@ npm run start:dev
 ## 🧪 Available Endpoints
 
 - `POST /users/register` – Register a new user
-- `POST /auth/login` – Login and receive a JWT token  
-*(more endpoints coming soon)*
+- `POST /auth/login` – Login and receive a JWT token
+- `GET /users/me` – Get authenticated user's info (requires JWT token)
+  _(more endpoints coming soon)_
+
+---
+
+## 🔐 Authentication Flow
+
+This API uses JWT for authentication. When a user logs in, a signed token is returned, which must be sent in the `Authorization` header as a Bearer token in future requests to protected endpoints.
+
+Protected routes (like `/users/me`) use:
+
+- `JwtAuthGuard`: applied via `@UseGuards(...)`
+- `JwtStrategy`: validates the token and extracts user data into `req.user`
 
 ---
 
 ## ✅ To Do
 
+- [x] User login with JWT token
+- [x] Password hashing and user validation
+- [x] Protect routes using JwtAuthGuard ✅
+- [ ] Role-based access control (admin/client)
 - [ ] Gym class CRUD
 - [ ] Booking system with slot limits
 - [ ] Class time validation
@@ -97,6 +112,17 @@ npm run start:dev
 ## 🧠 Project Vision
 
 This API is part of a long-term vision to deliver a solid backend foundation for real-world gym management applications. It emphasizes clean code, modular architecture, security best practices, and scalability for future growth and integration with cloud services.
+
+---
+
+## 🌐 Frontend Integration
+
+This API is being developed as the backend for a gym reservation system, with planned frontend clients built using:
+
+- 🧩 [React](https://react.dev/) – for the web-based admin dashboard and client portal
+- 📱 [React Native](https://reactnative.dev/) – for the mobile app used by gym members
+
+The API follows REST principles to allow seamless integration across platforms, enabling secure authentication, class bookings, and user role management from both web and mobile clients.
 
 ---
 
