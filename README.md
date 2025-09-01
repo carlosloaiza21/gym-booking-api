@@ -100,7 +100,7 @@ Protected routes (like `/users/me`) use:
 - [x] User login with JWT token
 - [x] Password hashing and user validation
 - [x] Protect routes using JwtAuthGuard ✅
-- [ ] Role-based access control (admin/client)
+- [x] Role-based access control (admin/client)
 - [ ] Gym class CRUD
 - [ ] Booking system with slot limits
 - [ ] Class time validation
