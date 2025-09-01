@@ -14,11 +14,18 @@ export class UsersController {
     async getProfile(@Request() req) {
         return req.user;
     }
+
+    @UseGuards(JwtAuthGuard)
+    @Get()
+    async findAll():Promise<User[]>{
+        return this.userService.findAll();
+    }
     
     @Post('register')
     async register(@Body() createUserDto: CreateUserDto):Promise<User> {
         return this.userService.create(createUserDto);
     }
+
 
 
 }
