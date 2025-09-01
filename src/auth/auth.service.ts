@@ -25,9 +25,13 @@ export class AuthService {
     }
 
     async SingIn(userName: string, password:string):Promise<any>{
-        const user = await this.userService.findOne(userName);
-        if(user?.password !== password){
-            throw new UnauthorizedException();
+        const user = await this.userService.findByEmail(userName);
+        if(!user){
+            throw new UnauthorizedException('User no found');
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+        if(!isMatch){
+            throw new UnauthorizedException("invalid password")
         }
         const payload ={sub:user.id, userName:user.email};
         return {
